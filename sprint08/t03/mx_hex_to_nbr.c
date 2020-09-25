@@ -18,9 +18,17 @@ unsigned long mx_hex_to_nbr(const char *hex) {
             result += (hex[i] - '0') * m;
         } else if (mx_isalpha(hex[i])) {
             if (mx_isupper(hex[i])) {
-                result += (hex[i] - 55) * m;
+                if (hex[i] < 71) {
+                    result += (hex[i] - 55) * m;
+                } else {
+                    return 0;
+                }
             } else if (mx_islower(hex[i])) {
-                result += (hex[i] - 87) * m;
+                if (hex[i] < 103) {
+                    result += (hex[i] - 87) * m;
+                } else {
+                    return 0;
+                }
             }
         }
         m *= 16;
