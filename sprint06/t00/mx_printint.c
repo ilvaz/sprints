@@ -31,4 +31,4 @@ void mx_printint(int n) {
     for (size -= 1; size >= 0; size--){
         mx_printchar(s[size]);
     }
-    mx_printchar('\n');}
+}
