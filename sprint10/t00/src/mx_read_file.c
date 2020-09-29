@@ -23,21 +23,19 @@ int main(int argc, char **argv) {
         return 0;
     }
     char *filename = argv[1];
-    char *content = malloc(1000);
+    char content;
     int file = open(filename, O_RDONLY);
     if (file == -1) {
         mx_printerr("error\n");
         return 0;
     }
-    int bytes = read(file, content, 1000);
-    if (bytes == -1) {
-        mx_printerr("error\n");
-        return 0;
+    while (read(file, &content, 1) > 0) {
+        write(1, &content, 1);
     }
+    
     if(close(file)) {
         mx_printerr("error\n");
         return 0;
     }
-    printf("%s", content);
     return 0;
 }
