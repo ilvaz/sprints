@@ -1,7 +1,7 @@
 #include "matrix.h"
 
 char get_random_num(void) {
-	return 33 + (random() % 94);
+	return 33 + (rand() % 94);
 }
 
 char *randomstr(int size) {
